@@ -4,6 +4,7 @@
  */
 import type { SceneObject } from '@/types';
 import type { StateManager } from '@/player/state';
+import { escapeHtml } from './utils';
 
 export class InspectorPanel {
   private container: HTMLElement;
@@ -71,9 +72,9 @@ export class InspectorPanel {
       </div>
       <div class="inspector-content">
         <div class="inspector-section">
-          <h4>${obj.label}</h4>
-          <span class="inspector-badge">${obj.kind}</span>
-          <span class="inspector-badge">${obj.type}</span>
+          <h4>${escapeHtml(obj.label)}</h4>
+          <span class="inspector-badge">${escapeHtml(obj.kind)}</span>
+          <span class="inspector-badge">${escapeHtml(obj.type)}</span>
         </div>
 
         <div class="inspector-section">

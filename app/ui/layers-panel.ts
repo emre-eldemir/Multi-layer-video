@@ -4,6 +4,7 @@
  */
 import type { SceneObject } from '@/types';
 import type { StateManager } from '@/player/state';
+import { escapeHtml } from './utils';
 
 export class LayersPanel {
   private container: HTMLElement;
@@ -129,16 +130,16 @@ export class LayersPanel {
     };
 
     return `
-      <div class="layer-item ${isSelected ? 'selected' : ''} ${!state.visible ? 'hidden-layer' : ''}" data-id="${obj.id}">
+      <div class="layer-item ${isSelected ? 'selected' : ''} ${!state.visible ? 'hidden-layer' : ''}" data-id="${escapeHtml(obj.id)}">
         <span class="layer-icon">${kindIcons[obj.kind] ?? '📦'}</span>
-        <span class="layer-name">${obj.label}</span>
+        <span class="layer-name">${escapeHtml(obj.label)}</span>
         <span class="layer-z">z:${state.z}</span>
         <div class="layer-actions">
-          <button class="layer-btn toggle-visibility" data-id="${obj.id}" title="Toggle visibility">
+          <button class="layer-btn toggle-visibility" data-id="${escapeHtml(obj.id)}" title="Toggle visibility">
             ${state.visible ? '👁️' : '👁️‍🗨️'}
           </button>
-          <button class="layer-btn move-up" data-id="${obj.id}" title="Move up">▲</button>
-          <button class="layer-btn move-down" data-id="${obj.id}" title="Move down">▼</button>
+          <button class="layer-btn move-up" data-id="${escapeHtml(obj.id)}" title="Move up">▲</button>
+          <button class="layer-btn move-down" data-id="${escapeHtml(obj.id)}" title="Move down">▼</button>
         </div>
       </div>
     `;
