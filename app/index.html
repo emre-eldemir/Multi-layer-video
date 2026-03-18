@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layered Video Media Player</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>" />
+</head>
+<body>
+  <div id="app">
+    <!-- Top Toolbar -->
+    <header id="toolbar" class="toolbar"></header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Left: Layers Panel -->
+      <aside id="layers-panel" class="side-panel left-panel"></aside>
+
+      <!-- Center: Player Canvas -->
+      <section class="player-area">
+        <div class="canvas-wrapper">
+          <canvas id="player-canvas"></canvas>
+        </div>
+
+        <!-- Timeline Slider -->
+        <div class="timeline-bar">
+          <input type="range" id="timeline-slider" min="0" max="30000" value="0" step="33" />
+          <span id="time-display" class="time-display">0:00 / 0:00</span>
+        </div>
+      </section>
+
+      <!-- Right: Inspector Panel -->
+      <aside id="inspector-panel" class="side-panel right-panel"></aside>
+    </main>
+
+    <!-- Status Bar -->
+    <footer class="status-bar">
+      <span id="status-bar">Ready</span>
+    </footer>
+  </div>
+
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>
