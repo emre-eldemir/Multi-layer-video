@@ -1,0 +1,103 @@
+{
+  "objects": [
+    {
+      "id": "speaker-01",
+      "type": "video",
+      "label": "Speaker",
+      "kind": "speaker",
+      "start_ms": 0,
+      "end_ms": 30000,
+      "source_track": "assets/video/speaker.mp4",
+      "alpha_track": "assets/alpha/speaker_alpha.webm",
+      "default_layout": {
+        "x": 50,
+        "y": 350,
+        "width": 320,
+        "height": 320,
+        "rotation": 0,
+        "opacity": 1.0,
+        "z": 10,
+        "visible": true
+      },
+      "interaction": {
+        "draggable": true,
+        "resizable": true,
+        "rotatable": false,
+        "toggleable": true,
+        "z_reorderable": true
+      },
+      "constraints": {
+        "bounds": { "x_min": 0, "x_max": 1280, "y_min": 0, "y_max": 720 },
+        "min_width": 100,
+        "max_width": 640,
+        "lock_aspect_ratio": true
+      }
+    },
+    {
+      "id": "logo-01",
+      "type": "image",
+      "label": "Company Logo",
+      "kind": "logo",
+      "start_ms": 0,
+      "end_ms": 30000,
+      "source_track": "assets/video/logo.mp4",
+      "alpha_track": "",
+      "default_layout": {
+        "x": 1080,
+        "y": 20,
+        "width": 160,
+        "height": 80,
+        "rotation": 0,
+        "opacity": 0.9,
+        "z": 20,
+        "visible": true
+      },
+      "interaction": {
+        "draggable": true,
+        "resizable": true,
+        "rotatable": false,
+        "toggleable": true,
+        "z_reorderable": true
+      },
+      "constraints": {
+        "bounds": { "x_min": 0, "x_max": 1280, "y_min": 0, "y_max": 720 },
+        "min_width": 60,
+        "max_width": 320,
+        "lock_aspect_ratio": true
+      }
+    },
+    {
+      "id": "chart-01",
+      "type": "overlay",
+      "label": "Info Chart",
+      "kind": "chart",
+      "start_ms": 5000,
+      "end_ms": 25000,
+      "source_track": "assets/video/chart.mp4",
+      "alpha_track": "",
+      "default_layout": {
+        "x": 750,
+        "y": 400,
+        "width": 480,
+        "height": 280,
+        "rotation": 0,
+        "opacity": 0.95,
+        "z": 15,
+        "visible": true
+      },
+      "interaction": {
+        "draggable": true,
+        "resizable": true,
+        "rotatable": false,
+        "toggleable": true,
+        "z_reorderable": true
+      },
+      "constraints": {
+        "bounds": { "x_min": 0, "x_max": 1280, "y_min": 0, "y_max": 720 },
+        "min_width": 200,
+        "max_width": 800,
+        "lock_aspect_ratio": false
+      }
+    }
+  ]
+}

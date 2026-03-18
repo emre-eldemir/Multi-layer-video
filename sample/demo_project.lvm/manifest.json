@@ -1,0 +1,28 @@
+{
+  "format": "layered-video-media",
+  "version": "0.1.0",
+  "project_id": "demo-001",
+  "title": "LVM Demo Project",
+  "created_at": "2025-01-01T00:00:00Z",
+  "duration_ms": 30000,
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30
+  },
+  "entrypoints": {
+    "timeline": "timeline.json",
+    "objects": "metadata/objects.json",
+    "interactions": "metadata/interactions.json",
+    "constraints": "metadata/constraints.json",
+    "preview": "previews/flattened_preview.mp4"
+  },
+  "capabilities": {
+    "toggle_visibility": true,
+    "drag_move": true,
+    "resize": true,
+    "rotate": false,
+    "z_reorder": true,
+    "export_state": true
+  }
+}
