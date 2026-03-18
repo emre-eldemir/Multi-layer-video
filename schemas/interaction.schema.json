@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LVM Interaction State",
+  "description": "Schema for interaction state in Layered Video Media",
+  "type": "object",
+  "required": ["project_id", "actions"],
+  "properties": {
+    "project_id": { "type": "string" },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["time_ms", "object_id", "action", "value"],
+        "properties": {
+          "time_ms": { "type": "integer", "minimum": 0 },
+          "object_id": { "type": "string" },
+          "action": {
+            "type": "string",
+            "enum": ["set_visible", "move", "resize", "set_z", "set_opacity", "rotate"]
+          },
+          "value": { "type": "object" }
+        }
+      }
+    }
+  }
+}

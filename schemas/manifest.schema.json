@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LVM Manifest",
+  "description": "Schema for Layered Video Media manifest file",
+  "type": "object",
+  "required": ["format", "version", "project_id", "title", "created_at", "duration_ms", "canvas", "entrypoints", "capabilities"],
+  "properties": {
+    "format": { "type": "string", "const": "layered-video-media" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "project_id": { "type": "string" },
+    "title": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "duration_ms": { "type": "integer", "minimum": 0 },
+    "canvas": {
+      "type": "object",
+      "required": ["width", "height", "fps"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "fps": { "type": "number", "minimum": 1 }
+      }
+    },
+    "entrypoints": {
+      "type": "object",
+      "required": ["timeline", "objects", "interactions", "constraints", "preview"],
+      "properties": {
+        "timeline": { "type": "string" },
+        "objects": { "type": "string" },
+        "interactions": { "type": "string" },
+        "constraints": { "type": "string" },
+        "preview": { "type": "string" }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "toggle_visibility": { "type": "boolean" },
+        "drag_move": { "type": "boolean" },
+        "resize": { "type": "boolean" },
+        "rotate": { "type": "boolean" },
+        "z_reorder": { "type": "boolean" },
+        "export_state": { "type": "boolean" }
+      }
+    }
+  }
+}

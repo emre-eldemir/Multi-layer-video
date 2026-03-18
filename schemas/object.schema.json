@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LVM Object",
+  "description": "Schema for a scene object in Layered Video Media",
+  "type": "object",
+  "required": ["id", "type", "label", "kind", "start_ms", "end_ms", "source_track", "default_layout", "interaction"],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string", "enum": ["video", "image", "overlay"] },
+    "label": { "type": "string" },
+    "kind": { "type": "string", "enum": ["background", "speaker", "logo", "chart", "info_panel", "overlay"] },
+    "start_ms": { "type": "integer", "minimum": 0 },
+    "end_ms": { "type": "integer", "minimum": 0 },
+    "source_track": { "type": "string" },
+    "alpha_track": { "type": "string" },
+    "default_layout": {
+      "type": "object",
+      "required": ["x", "y", "width", "height", "rotation", "opacity", "z", "visible"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "width": { "type": "number", "minimum": 0 },
+        "height": { "type": "number", "minimum": 0 },
+        "rotation": { "type": "number" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "z": { "type": "integer" },
+        "visible": { "type": "boolean" }
+      }
+    },
+    "interaction": {
+      "type": "object",
+      "properties": {
+        "draggable": { "type": "boolean" },
+        "resizable": { "type": "boolean" },
+        "rotatable": { "type": "boolean" },
+        "toggleable": { "type": "boolean" },
+        "z_reorderable": { "type": "boolean" }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "bounds": {
+          "type": "object",
+          "properties": {
+            "x_min": { "type": "number" },
+            "x_max": { "type": "number" },
+            "y_min": { "type": "number" },
+            "y_max": { "type": "number" }
+          }
+        },
+        "min_width": { "type": "number", "minimum": 0 },
+        "max_width": { "type": "number", "minimum": 0 },
+        "lock_aspect_ratio": { "type": "boolean" }
+      }
+    }
+  }
+}
