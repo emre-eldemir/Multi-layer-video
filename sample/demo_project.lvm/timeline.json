@@ -1,0 +1,12 @@
+{
+  "scenes": [
+    {
+      "scene_id": "scene-01",
+      "label": "Main Presentation",
+      "start_ms": 0,
+      "end_ms": 30000,
+      "background": "assets/video/background.mp4",
+      "active_objects": ["speaker-01", "logo-01", "chart-01"]
+    }
+  ]
+}
