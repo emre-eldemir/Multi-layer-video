@@ -14,6 +14,8 @@ import { Toolbar } from '@/ui/toolbar';
 import { InspectorPanel } from '@/ui/inspector';
 import type { ProjectData, SceneObject } from '@/types';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './styles/app.css';
 
 // ─── Application State ──────────────────────────────────────────────

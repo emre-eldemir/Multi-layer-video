@@ -42,10 +42,11 @@ export class InspectorPanel {
     if (!this.selectedObjectId) {
       this.container.innerHTML = `
         <div class="panel-header">
-          <span class="panel-title">Inspector</span>
+          <span class="panel-title"><i class="bi bi-sliders me-1"></i>Inspector</span>
         </div>
         <div class="inspector-empty">
-          <p>Select an object to inspect its properties</p>
+          <i class="bi bi-cursor-fill d-block mb-2" style="font-size:1.5rem; opacity:0.3"></i>
+          <p class="mb-0">Select an object to inspect its properties</p>
         </div>
       `;
       return;
@@ -57,10 +58,10 @@ export class InspectorPanel {
     if (!obj || !state) {
       this.container.innerHTML = `
         <div class="panel-header">
-          <span class="panel-title">Inspector</span>
+          <span class="panel-title"><i class="bi bi-sliders me-1"></i>Inspector</span>
         </div>
         <div class="inspector-empty">
-          <p>Object not found</p>
+          <p class="mb-0">Object not found</p>
         </div>
       `;
       return;
@@ -68,23 +69,23 @@ export class InspectorPanel {
 
     this.container.innerHTML = `
       <div class="panel-header">
-        <span class="panel-title">Inspector</span>
+        <span class="panel-title"><i class="bi bi-sliders me-1"></i>Inspector</span>
       </div>
       <div class="inspector-content">
         <div class="inspector-section">
-          <h4>${escapeHtml(obj.label)}</h4>
-          <span class="inspector-badge">${escapeHtml(obj.kind)}</span>
-          <span class="inspector-badge">${escapeHtml(obj.type)}</span>
+          <h6 class="fw-semibold mb-1">${escapeHtml(obj.label)}</h6>
+          <span class="badge text-bg-secondary me-1">${escapeHtml(obj.kind)}</span>
+          <span class="badge text-bg-secondary">${escapeHtml(obj.type)}</span>
         </div>
 
         <div class="inspector-section">
           <label>Position</label>
-          <div class="inspector-row">
-            <div class="inspector-field">
+          <div class="d-flex gap-2">
+            <div class="inspector-field d-flex align-items-center gap-1 flex-grow-1">
               <span>X</span>
               <input type="number" class="inspector-input" data-prop="x" value="${Math.round(state.x)}" />
             </div>
-            <div class="inspector-field">
+            <div class="inspector-field d-flex align-items-center gap-1 flex-grow-1">
               <span>Y</span>
               <input type="number" class="inspector-input" data-prop="y" value="${Math.round(state.y)}" />
             </div>
@@ -93,12 +94,12 @@ export class InspectorPanel {
 
         <div class="inspector-section">
           <label>Size</label>
-          <div class="inspector-row">
-            <div class="inspector-field">
+          <div class="d-flex gap-2">
+            <div class="inspector-field d-flex align-items-center gap-1 flex-grow-1">
               <span>W</span>
               <input type="number" class="inspector-input" data-prop="width" value="${Math.round(state.width)}" />
             </div>
-            <div class="inspector-field">
+            <div class="inspector-field d-flex align-items-center gap-1 flex-grow-1">
               <span>H</span>
               <input type="number" class="inspector-input" data-prop="height" value="${Math.round(state.height)}" />
             </div>
@@ -118,8 +119,10 @@ export class InspectorPanel {
         </div>
 
         <div class="inspector-section">
-          <label>Visible</label>
-          <input type="checkbox" class="inspector-checkbox" data-prop="visible" ${state.visible ? 'checked' : ''} />
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input inspector-checkbox" data-prop="visible" id="chk-visible" ${state.visible ? 'checked' : ''} />
+            <label class="form-check-label" for="chk-visible" style="text-transform:none; font-size:0.8rem">Visible</label>
+          </div>
         </div>
       </div>
     `;

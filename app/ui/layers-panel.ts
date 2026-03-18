@@ -61,19 +61,19 @@ export class LayersPanel {
 
     this.container.innerHTML = `
       <div class="panel-header">
-        <span class="panel-title">Layers</span>
+        <span class="panel-title"><i class="bi bi-layers me-1"></i>Layers</span>
       </div>
-      <div class="layers-list">
+      <div class="layers-list list-group list-group-flush flex-grow-1 overflow-auto">
         ${sorted.map((obj) => this.renderLayer(obj)).join('')}
       </div>
     `;
 
     // Bind events
-    this.container.querySelectorAll('.layer-item').forEach((el) => {
+    this.container.querySelectorAll('.list-group-item').forEach((el) => {
       const id = (el as HTMLElement).dataset.id!;
 
       el.addEventListener('click', (e) => {
-        if (!(e.target as HTMLElement).closest('.layer-btn')) {
+        if (!(e.target as HTMLElement).closest('.layer-actions')) {
           this.onSelect(id);
         }
       });
@@ -122,24 +122,29 @@ export class LayersPanel {
 
     const isSelected = obj.id === this.selectedObjectId;
     const kindIcons: Record<string, string> = {
-      speaker: '🎤',
-      logo: '🏷️',
-      chart: '📊',
-      info_panel: 'ℹ️',
-      overlay: '🔲',
+      speaker: 'bi-mic',
+      logo: 'bi-tag',
+      chart: 'bi-bar-chart',
+      info_panel: 'bi-info-circle',
+      overlay: 'bi-square',
     };
+    const iconClass = kindIcons[obj.kind] ?? 'bi-box';
 
     return `
-      <div class="layer-item ${isSelected ? 'selected' : ''} ${!state.visible ? 'hidden-layer' : ''}" data-id="${escapeHtml(obj.id)}">
-        <span class="layer-icon">${kindIcons[obj.kind] ?? '📦'}</span>
-        <span class="layer-name">${escapeHtml(obj.label)}</span>
-        <span class="layer-z">z:${state.z}</span>
-        <div class="layer-actions">
-          <button class="layer-btn toggle-visibility" data-id="${escapeHtml(obj.id)}" title="Toggle visibility">
-            ${state.visible ? '👁️' : '👁️‍🗨️'}
+      <div class="list-group-item d-flex align-items-center gap-2 ${isSelected ? 'active' : ''} ${!state.visible ? 'hidden-layer' : ''}" data-id="${escapeHtml(obj.id)}">
+        <span class="layer-icon"><i class="bi ${iconClass}"></i></span>
+        <span class="layer-name flex-grow-1">${escapeHtml(obj.label)}</span>
+        <span class="badge text-bg-secondary rounded-pill small">z:${state.z}</span>
+        <div class="layer-actions d-flex gap-1">
+          <button class="btn toggle-visibility" data-id="${escapeHtml(obj.id)}" title="Toggle visibility">
+            <i class="bi ${state.visible ? 'bi-eye' : 'bi-eye-slash'}"></i>
           </button>
-          <button class="layer-btn move-up" data-id="${escapeHtml(obj.id)}" title="Move up">▲</button>
-          <button class="layer-btn move-down" data-id="${escapeHtml(obj.id)}" title="Move down">▼</button>
+          <button class="btn move-up" data-id="${escapeHtml(obj.id)}" title="Move up">
+            <i class="bi bi-chevron-up"></i>
+          </button>
+          <button class="btn move-down" data-id="${escapeHtml(obj.id)}" title="Move down">
+            <i class="bi bi-chevron-down"></i>
+          </button>
         </div>
       </div>
     `;
