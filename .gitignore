@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.js.map
+.DS_Store
+*.log
+.env
+sample/demo_project.lvm/assets/video/*.mp4
+sample/demo_project.lvm/assets/alpha/*.webm
+sample/demo_project.lvm/previews/*.mp4
