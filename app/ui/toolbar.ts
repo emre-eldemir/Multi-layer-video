@@ -39,19 +39,31 @@ export class Toolbar {
 
   private render(): void {
     this.container.innerHTML = `
-      <div class="toolbar-group">
-        <button id="btn-load-demo" class="toolbar-btn" title="Load Demo Project">
-          📂 Load Demo
-        </button>
-      </div>
-      <div class="toolbar-group toolbar-center">
-        <button id="btn-play" class="toolbar-btn" title="Play">▶️ Play</button>
-        <button id="btn-pause" class="toolbar-btn" title="Pause" disabled>⏸️ Pause</button>
-      </div>
-      <div class="toolbar-group">
-        <button id="btn-import-state" class="toolbar-btn" title="Import State">📥 Import</button>
-        <button id="btn-export-state" class="toolbar-btn" title="Export State">💾 Export State</button>
-        <button id="btn-export-flat" class="toolbar-btn" title="Export Flattened Video">🎬 Export Video</button>
+      <div class="d-flex align-items-center justify-content-between w-100 px-2 h-100 gap-2">
+        <div class="d-flex align-items-center gap-1">
+          <button id="btn-load-demo" class="btn btn-sm btn-outline-secondary" title="Load Demo Project">
+            <i class="bi bi-folder2-open me-1"></i>Load Demo
+          </button>
+        </div>
+        <div class="d-flex align-items-center gap-1">
+          <button id="btn-play" class="btn btn-sm btn-outline-light" title="Play">
+            <i class="bi bi-play-fill me-1"></i>Play
+          </button>
+          <button id="btn-pause" class="btn btn-sm btn-outline-light" title="Pause" disabled>
+            <i class="bi bi-pause-fill me-1"></i>Pause
+          </button>
+        </div>
+        <div class="d-flex align-items-center gap-1">
+          <button id="btn-import-state" class="btn btn-sm btn-outline-secondary" title="Import State">
+            <i class="bi bi-box-arrow-in-down me-1"></i>Import
+          </button>
+          <button id="btn-export-state" class="btn btn-sm btn-outline-secondary" title="Export State">
+            <i class="bi bi-save me-1"></i>Export State
+          </button>
+          <button id="btn-export-flat" class="btn btn-sm btn-outline-secondary" title="Export Flattened Video">
+            <i class="bi bi-camera-reels me-1"></i>Export Video
+          </button>
+        </div>
       </div>
     `;
 
